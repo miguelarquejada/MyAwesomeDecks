@@ -68,11 +68,7 @@
   right: 0 !important;
 }
 
-textarea {
-  min-height: 150px;
-}
-
-textarea, input {
+#create-deck-input {
   padding: 20px;
   width: 100%;
   border: none;
