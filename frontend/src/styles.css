@@ -1,0 +1,35 @@
+/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: 'Poppins Regular';
+  src: url('./assets/fonts/Poppins-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Poppins Bold';
+  src: url('./assets/fonts/Poppins-Bold.ttf');
+}
+
+* {
+  font-family: 'Poppins Regular';
+  color: #25273E;
+}
+
+body {
+  background-color: #E7E7E7;
+}
+
+.bg-color-blue {
+ background-color: #25273E;
+}
+
+.bg-color-red {
+  background-color: #EE3A57;
+}
+
+.text-color-blue {
+  color: #25273E;
+ }
+
+ .text-color-red {
+   color: #EE3A57;
+ }

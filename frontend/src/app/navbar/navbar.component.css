@@ -1,0 +1,22 @@
+#navbar {
+  background-color: #EE3A57;
+  padding: 10px 0px;
+}
+
+#logo {
+  height: 20px;
+}
+
+#logout-area {
+  cursor: pointer;
+}
+
+#logout-area > span {
+  margin-right: 10px;
+  color: #E7E7E7;
+  font-size: 14px;
+}
+
+#logout-area > img {
+  height: 20px;
+}

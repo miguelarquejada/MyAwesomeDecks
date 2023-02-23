@@ -1,0 +1,50 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-5">
+  <div class="row">
+    <div routerLink="/" id="back-area" class="d-flex align-items-center mb-3">
+      <img class="me-3" src="../../assets/icons/back.png" alt="ícone de voltar" />
+      <span>voltar</span>
+    </div>
+    <div id="deck-title-area" class="d-flex">
+      <span id="deck-description" class="me-2">Deck selecionado: </span>
+      <span id="deck-title">Inglês</span>
+    </div>
+  </div>
+
+  <div class="row mt-5 ">
+    <div class="col-sm-12 col-md-7">
+      <div id="deck" class="d-flex align-items-center justify-content-center">Inglês</div>
+
+      <div id="deck-information-area" class="d-flex align-items-center justify-content-between mt-4">
+        <div id="deck-cards-created-area" class="d-flex align-items-center justify-content-between ms-2">
+          <img class="me-3" src="../../assets/icons/cards.png" alt="cartões" />
+          <span class="me-2 fw-bold">Cartões criados: </span>
+          <span>234</span>
+        </div>
+
+        <button routerLink="/card" id="study-button" class="me-3">
+          <img class="me-2" src="../../assets/icons/study.png" alt="beca" />
+          estudar deck
+        </button>
+      </div>
+    </div>
+
+    <div class="col-sm-12 col-md-5">
+      <div class="row mb-4">
+        <div id="search-area" class="d-flex align-items-center col-8">
+          <img class="me-3" src="../../assets/icons/search.png" alt="ícone de lupa" />
+          <input type="text" placeholder="pesquisar cartão...">
+        </div>
+        <button routerLink="/create-card" id="add-button" class="col-4">
+          <img class="me-2" src="../../assets/icons/add-2.png" alt="adicionar" />
+          adicionar
+        </button>
+      </div>
+      <div id="cards-area">
+        <div class="card-item d-flex align-items-center justify-content-center mb-2">aaaaa</div>
+        <div class="card-item d-flex align-items-center justify-content-center">aaaaa</div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,84 @@
+
+#title {
+  font-size: 32px;
+  font-family: 'Poppins Bold';
+}
+
+#profile-area {
+  background-color: #F3F3F3;
+  padding: 10px 30px;
+  border-radius: 8px;
+  border: 1px solid #D9D9D9;
+  cursor: pointer;
+}
+
+#profile-area > img {
+  height: 26px;
+}
+
+#favorite-title-area > img {
+  height: 26px;
+}
+
+#favorite-cards-area > span {
+  color: #999999;
+}
+
+#search-area > img {
+  height: 26px;
+  width: auto;
+}
+
+#search-area > input {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #25273E;
+  outline: none;
+  width: 250px;
+  padding: 5px;
+}
+
+#cards-area > .card, #favorite-cards-area > .card {
+  position: relative;
+  height: 180px;
+  cursor: pointer;
+  background-color: #F3F3F3;
+  border-radius: 20px;
+  border: 1px solid #D9D9D9;
+}
+
+#cards-area > .card:hover, #favorite-cards-area > .card:hover {
+  border-color: #25273E;
+}
+
+#cards-area > .card > span, #favorite-cards-area > .card > span {
+  color: #25273E;
+}
+
+#cards-area > .card > img, #favorite-cards-area > .card > img {
+  height: 26px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+#add-icon {
+  position: relative !important;
+  top: 0 !important;
+  right: 0 !important;
+}
+
+textarea {
+  min-height: 150px;
+}
+
+textarea, input {
+  padding: 20px;
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  margin-top: 10px;
+  outline: none;
+  background-color: #F3F3F3;
+  border: 1px solid #D9D9D9;
+}
