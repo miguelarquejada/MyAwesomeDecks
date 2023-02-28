@@ -21,4 +21,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\MyAwesomeDecks.Domain\MyAwesomeDecks.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -1,15 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MyAwesomeDecks.Domain.Entities;
 using MyAwesomeDecks.Domain.Repositories;
-using MyAwesomeDecks.Infrastructure.Data;
+using MyAwesomeDecks.Infrastructure.Data.Context;
 
 namespace MyAwesomeDecks.Infrastructure.Repositories
 {
     public class Repository<T> : IRepository<T> where T : Entity
     {
-        private readonly ApplicationContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public Repository(ApplicationContext context)
+        public Repository(ApplicationDbContext context)
         {
             _context = context;
         }
