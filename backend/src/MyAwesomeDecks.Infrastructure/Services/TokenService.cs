@@ -31,7 +31,7 @@ namespace MyAwesomeDecks.Infrastructure.Services
                     new Claim("username", user.GetUsernameOrEmptyString()),
                     new Claim("email", user.GetEmailOrEmptyString())
                 }),
-                Expires = DateTime.Now.AddMinutes(_jwtConfig.ExpirationMinutes),
+                Expires = DateTime.UtcNow.AddMinutes(_jwtConfig.ExpirationMinutes),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
             var token = tokenHandler.CreateToken(tokenDescriptor);

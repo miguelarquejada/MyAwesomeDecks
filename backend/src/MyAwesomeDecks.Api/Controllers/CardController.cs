@@ -1,10 +1,12 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MyAwesomeDecks.Application.Queries.GetDecks;
 
 namespace MyAwesomeDecks.Api.Controllers
 {
     [ApiController]
+    [Authorize]
     [Route("[controller]")]
     public class CardController : Controller
     {
@@ -15,6 +17,7 @@ namespace MyAwesomeDecks.Api.Controllers
             _mediator = mediator;
         }
 
+        [HttpGet]
         public async Task<IActionResult> Get()
         {
             var result = await _mediator.Send(new GetDecksQuery());

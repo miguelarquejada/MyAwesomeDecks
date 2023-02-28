@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using MyAwesomeDecks.Domain.Entities;
+using System.Collections.Generic;
 
 namespace MyAwesomeDecks.Application.Queries.GetDecks
 {
@@ -7,7 +8,7 @@ namespace MyAwesomeDecks.Application.Queries.GetDecks
     {
         public Task<IEnumerable<Deck>> Handle(GetDecksQuery request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            return Task.FromResult(new List<Deck>().AsEnumerable());
         }
     }
 }
