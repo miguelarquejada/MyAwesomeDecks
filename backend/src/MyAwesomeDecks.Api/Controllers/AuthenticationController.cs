@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MyAwesomeDecks.Application.Commands.AuthenticateUser;
+using MyAwesomeDecks.Application.Commands.RegisterUser;
 
 namespace MyAwesomeDecks.Api.Controllers
 {
@@ -17,10 +18,17 @@ namespace MyAwesomeDecks.Api.Controllers
             _mediator = mediator;
         }
 
-        [HttpPost("~/sign-in")]
+        [HttpPost("sign-in")]
         public async Task<IActionResult> SignIn(AuthenticateUserCommand authenticateUserCommand)
         {
-            var result = _mediator.Send(authenticateUserCommand);
+            var result = await _mediator.Send(authenticateUserCommand);
+            return Ok(result);
+        }
+
+        [HttpPost("sign-up")]
+        public async Task<IActionResult> SignUp(RegisterUserCommand registerUserCommand)
+        {
+            var result = await _mediator.Send(registerUserCommand);
             return Ok(result);
         }
     }

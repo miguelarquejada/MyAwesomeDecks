@@ -12,7 +12,6 @@ namespace MyAwesomeDecks.Api.Extensions
             services.AddScoped<ITokenService, TokenService>();
             services.AddScoped<IAuthenticationService, AuthenticationService>();
             services.AddScoped<ICardService, CardService>();
-            services.AddScoped<IDeckCardService, DeckCardService>();
             services.AddScoped<IDeckService, DeckService>();
 
             return services;
@@ -21,7 +20,6 @@ namespace MyAwesomeDecks.Api.Extensions
         public static IServiceCollection AddRepositories(this IServiceCollection services)
         {
             services.AddScoped<ICardRepository, CardRepository>();
-            services.AddScoped<IDeckCardRepository, DeckCardRepository>();
             services.AddScoped<IDeckRepository, DeckRepository>();
 
             return services;

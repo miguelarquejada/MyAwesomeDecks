@@ -12,6 +12,19 @@ namespace MyAwesomeDecks.Infrastructure.Data.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "ApplicationUserDto",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    UserName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ApplicationUserDto", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AspNetRoles",
                 columns: table => new
                 {
@@ -51,19 +64,6 @@ namespace MyAwesomeDecks.Infrastructure.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Cards",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Front = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Back = table.Column<string>(type: "nvarchar(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Cards", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Decks",
                 columns: table => new
                 {
@@ -74,6 +74,12 @@ namespace MyAwesomeDecks.Infrastructure.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Decks", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Decks_ApplicationUserDto_UserId",
+                        column: x => x.UserId,
+                        principalTable: "ApplicationUserDto",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -183,24 +189,19 @@ namespace MyAwesomeDecks.Infrastructure.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "DeckCard",
+                name: "Cards",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    DeckId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    CardId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    Front = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Back = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DeckId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_DeckCard", x => x.Id);
+                    table.PrimaryKey("PK_Cards", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_DeckCard_Cards_CardId",
-                        column: x => x.CardId,
-                        principalTable: "Cards",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_DeckCard_Decks_DeckId",
+                        name: "FK_Cards_Decks_DeckId",
                         column: x => x.DeckId,
                         principalTable: "Decks",
                         principalColumn: "Id",
@@ -247,14 +248,14 @@ namespace MyAwesomeDecks.Infrastructure.Data.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_DeckCard_CardId",
-                table: "DeckCard",
-                column: "CardId");
+                name: "IX_Cards_DeckId",
+                table: "Cards",
+                column: "DeckId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_DeckCard_DeckId",
-                table: "DeckCard",
-                column: "DeckId");
+                name: "IX_Decks_UserId",
+                table: "Decks",
+                column: "UserId");
         }
 
         /// <inheritdoc />
@@ -276,7 +277,7 @@ namespace MyAwesomeDecks.Infrastructure.Data.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "DeckCard");
+                name: "Cards");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
@@ -285,10 +286,10 @@ namespace MyAwesomeDecks.Infrastructure.Data.Migrations
                 name: "AspNetUsers");
 
             migrationBuilder.DropTable(
-                name: "Cards");
+                name: "Decks");
 
             migrationBuilder.DropTable(
-                name: "Decks");
+                name: "ApplicationUserDto");
         }
     }
 }

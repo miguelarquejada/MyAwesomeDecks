@@ -16,12 +16,5 @@ namespace MyAwesomeDecks.Api.Controllers
         {
             _mediator = mediator;
         }
-
-        [HttpGet]
-        public async Task<IActionResult> Get()
-        {
-            var result = await _mediator.Send(new GetDecksQuery());
-            return Ok(result);
-        }
     }
 }

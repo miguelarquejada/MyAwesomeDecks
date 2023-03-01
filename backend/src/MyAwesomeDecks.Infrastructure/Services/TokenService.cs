@@ -27,9 +27,9 @@ namespace MyAwesomeDecks.Infrastructure.Services
                 Issuer = _jwtConfig.Issuer,
                 Audience = _jwtConfig.Audience,
                 Subject = new ClaimsIdentity(new[] {
-                    new Claim("id", user.Id.ToString()),
-                    new Claim("username", user.GetUsernameOrEmptyString()),
-                    new Claim("email", user.GetEmailOrEmptyString())
+                    new Claim("Id", user.Id.ToString()),
+                    new Claim("Username", user.GetUsernameOrEmptyString()),
+                    new Claim("Email", user.GetEmailOrEmptyString())
                 }),
                 Expires = DateTime.UtcNow.AddMinutes(_jwtConfig.ExpirationMinutes),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)

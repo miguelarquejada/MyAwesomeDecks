@@ -4,6 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using MyAwesomeDecks.Api.Extensions;
+using MyAwesomeDecks.Api.Identity;
+using MyAwesomeDecks.Api.Middleware;
 using MyAwesomeDecks.Api.Swagger;
 using MyAwesomeDecks.Application.Queries.GetDecks;
 using MyAwesomeDecks.Domain.Data;
@@ -54,6 +56,7 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
         //options.Password.RequireNonAlphanumeric = true;
         //options.Password.RequiredLength = 8;
     })
+    .AddErrorDescriber<IdentityLocalizedErrorDescriber>()
     .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultTokenProviders();
 
@@ -97,6 +100,8 @@ builder.Services.AddRepositories();
 
 var app = builder.Build();
 
+app.UseMiddleware<ExceptionMiddleware>();
+
 app.UseAuthentication();
 app.UseAuthorization();
 
@@ -106,7 +111,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
 
 app.UseHttpsRedirection();
 

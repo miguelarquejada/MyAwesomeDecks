@@ -4,23 +4,19 @@ using MyAwesomeDecks.Domain.Services;
 
 namespace MyAwesomeDecks.Application.Commands.AuthenticateUser
 {
-    public class AuthenticateUserHandler : IRequestHandler<AuthenticateUserCommand, string>
+    public class AuthenticateUserHandler : IRequestHandler<AuthenticateUserCommand, AuthenticationResponseDto>
     {
-        private readonly ITokenService _tokenService;
+        private readonly IAuthenticationService _authenticationService;
 
-        public AuthenticateUserHandler(ITokenService tokenService)
+        public AuthenticateUserHandler(IAuthenticationService authenticationService)
         {
-            _tokenService = tokenService;
+            _authenticationService = authenticationService;
         }
 
-        public async Task<string> Handle(AuthenticateUserCommand request, CancellationToken cancellationToken)
+        public async Task<AuthenticationResponseDto> Handle(AuthenticateUserCommand request, CancellationToken cancellationToken)
         {
-            var user = new ApplicationUserDto();
-            user.Id = Guid.NewGuid();
-            user.UserName = "miguel";
-            user.Email = "miguel@gmail.com";
-
-            return _tokenService.GerenateToken(user);
+            var result = await _authenticationService.SignInUser(request.Email, request.Password);
+            return result;
         }
     }
 }

@@ -14,6 +14,5 @@ namespace MyAwesomeDecks.Infrastructure.Data.Context
 
         public DbSet<Card> Cards { get; set; }
         public DbSet<Deck> Decks { get; set; }
-        public DbSet<DeckCard> DeckCard { get; set; }
     }
 }

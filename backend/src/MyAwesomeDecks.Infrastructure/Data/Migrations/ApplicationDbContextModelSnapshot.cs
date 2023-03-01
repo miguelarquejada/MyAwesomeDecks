@@ -155,6 +155,23 @@ namespace MyAwesomeDecks.Infrastructure.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("MyAwesomeDecks.Domain.Dto.ApplicationUserDto", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ApplicationUserDto");
+                });
+
             modelBuilder.Entity("MyAwesomeDecks.Domain.Entities.Card", b =>
                 {
                     b.Property<Guid>("Id")
@@ -165,11 +182,16 @@ namespace MyAwesomeDecks.Infrastructure.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<Guid>("DeckId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("Front")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("DeckId");
 
                     b.ToTable("Cards");
                 });
@@ -189,28 +211,9 @@ namespace MyAwesomeDecks.Infrastructure.Data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("UserId");
+
                     b.ToTable("Decks");
-                });
-
-            modelBuilder.Entity("MyAwesomeDecks.Domain.Entities.DeckCard", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("CardId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("DeckId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CardId");
-
-                    b.HasIndex("DeckId");
-
-                    b.ToTable("DeckCard");
                 });
 
             modelBuilder.Entity("MyAwesomeDecks.Infrastructure.Identity.ApplicationUser", b =>
@@ -329,23 +332,31 @@ namespace MyAwesomeDecks.Infrastructure.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("MyAwesomeDecks.Domain.Entities.DeckCard", b =>
+            modelBuilder.Entity("MyAwesomeDecks.Domain.Entities.Card", b =>
                 {
-                    b.HasOne("MyAwesomeDecks.Domain.Entities.Card", "Card")
-                        .WithMany()
-                        .HasForeignKey("CardId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("MyAwesomeDecks.Domain.Entities.Deck", "Deck")
-                        .WithMany()
+                        .WithMany("Cards")
                         .HasForeignKey("DeckId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Card");
-
                     b.Navigation("Deck");
+                });
+
+            modelBuilder.Entity("MyAwesomeDecks.Domain.Entities.Deck", b =>
+                {
+                    b.HasOne("MyAwesomeDecks.Domain.Dto.ApplicationUserDto", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("MyAwesomeDecks.Domain.Entities.Deck", b =>
+                {
+                    b.Navigation("Cards");
                 });
 #pragma warning restore 612, 618
         }
