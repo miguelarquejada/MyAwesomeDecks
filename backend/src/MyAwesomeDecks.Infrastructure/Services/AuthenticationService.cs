@@ -34,7 +34,7 @@ namespace MyAwesomeDecks.Infrastructure.Services
         {
             var user = await _userManager.FindByNameAsync(username);
             if (user == null)
-                throw new UserNotFoundException();
+                throw new InvalidCredentialsException();
 
             var isPasswordCorrect = await _userManager.CheckPasswordAsync(user, userPassword);
             if (!isPasswordCorrect)
@@ -44,7 +44,7 @@ namespace MyAwesomeDecks.Infrastructure.Services
         private async Task<ApplicationUserDto> GetUserByUsernameAsync(string username)
         {
             var user = await _userManager.FindByNameAsync(username);
-            var result = new ApplicationUserDto(Guid.Parse(user.Id), user.UserName, user.Email);
+            var result = new ApplicationUserDto(Guid.Parse(user.Id), user.Email);
 
             return result;
         }

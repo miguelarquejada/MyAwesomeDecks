@@ -45,7 +45,7 @@ namespace MyAwesomeDecks.Api.Identity
             return new IdentityError
             {
                 Code = nameof(PasswordRequiresDigit),
-                Description = "A senha devem ter pelo menos um dígito (0-9)."
+                Description = "A senha deve ter pelo menos um dígito (0-9)."
             };
         }
 
@@ -54,7 +54,16 @@ namespace MyAwesomeDecks.Api.Identity
             return new IdentityError
             {
                 Code = nameof(PasswordRequiresDigit),
-                Description = "A senha devem ter pelo menos uma letra maiúscula (A-Z)."
+                Description = "A senha deve ter pelo menos uma letra maiúscula (A-Z)."
+            };
+        }
+
+        public override IdentityError PasswordRequiresLower()
+        {
+            return new IdentityError
+            {
+                Code = nameof(PasswordRequiresLower),
+                Description = "A senha deve ter pelo menos uma letra minúscula (a-z)."
             };
         }
 

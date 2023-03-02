@@ -44,7 +44,7 @@ builder.Services.AddDbContext<IApplicationContext, ApplicationDbContext>(options
 
 builder.Services.AddMediatR(conf =>
 {
-    conf.RegisterServicesFromAssembly(typeof(GetDecksQuery).Assembly);
+    conf.RegisterServicesFromAssembly(typeof(GetDecksByUserIdQuery).Assembly);
 });
 
 // User management with identity

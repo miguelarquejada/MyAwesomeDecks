@@ -9,5 +9,10 @@ namespace MyAwesomeDecks.Infrastructure.Repositories
         public DeckRepository(ApplicationDbContext context) : base(context)
         {
         }
+
+        public IQueryable<Deck> GetDecksByUserId(Guid userId)
+        {
+            return GetAll().Where(x => x.UserId == userId);
+        }
     }
 }

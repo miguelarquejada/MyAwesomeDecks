@@ -32,7 +32,7 @@ namespace Infrastructure.Tests.Services
 
             // Act
             // Assert
-            await Assert.ThrowsAsync<UserNotFoundException>(() => authenticationService.SignInUser(It.IsAny<string>(), It.IsAny<string>()));
+            await Assert.ThrowsAsync<InvalidCredentialsException>(() => authenticationService.SignInUser(It.IsAny<string>(), It.IsAny<string>()));
         }
 
         [Fact]

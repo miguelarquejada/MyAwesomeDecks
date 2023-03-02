@@ -17,10 +17,10 @@ namespace MyAwesomeDecks.Api.Controllers
             _mediator = mediator;
         }
 
-        [HttpGet("/user/{id}")]
+        [HttpGet("/User/{userId}")]
         public async Task<IActionResult> GetAllByUserId(Guid userId)
         {
-            var getDecksQuery = new GetDecksQuery(userId);
+            var getDecksQuery = new GetDecksByUserIdQuery(userId);
             var result = await _mediator.Send(getDecksQuery);
             return Ok(result);
         }

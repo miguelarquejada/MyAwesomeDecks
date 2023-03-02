@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MyAwesomeDecks.Domain.Entities;
 
 namespace MyAwesomeDecks.Domain.Services
 {
     public interface IDeckService
     {
+        IQueryable<Deck> GetDecksByUserId(Guid userId);
     }
 }

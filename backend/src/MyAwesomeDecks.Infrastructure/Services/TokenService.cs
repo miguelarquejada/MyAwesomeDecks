@@ -28,7 +28,6 @@ namespace MyAwesomeDecks.Infrastructure.Services
                 Audience = _jwtConfig.Audience,
                 Subject = new ClaimsIdentity(new[] {
                     new Claim("Id", user.Id.ToString()),
-                    new Claim("Username", user.GetUsernameOrEmptyString()),
                     new Claim("Email", user.GetEmailOrEmptyString())
                 }),
                 Expires = DateTime.UtcNow.AddMinutes(_jwtConfig.ExpirationMinutes),
@@ -36,6 +35,7 @@ namespace MyAwesomeDecks.Infrastructure.Services
             };
             var token = tokenHandler.CreateToken(tokenDescriptor);
             var tokenString = tokenHandler.WriteToken(token);
+
 
             return tokenString;
         }

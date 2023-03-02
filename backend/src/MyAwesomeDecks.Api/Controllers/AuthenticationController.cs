@@ -18,14 +18,14 @@ namespace MyAwesomeDecks.Api.Controllers
             _mediator = mediator;
         }
 
-        [HttpPost("sign-in")]
+        [HttpPost("Sign-In")]
         public async Task<IActionResult> SignIn(AuthenticateUserCommand authenticateUserCommand)
         {
             var result = await _mediator.Send(authenticateUserCommand);
             return Ok(result);
         }
 
-        [HttpPost("sign-up")]
+        [HttpPost("Sign-Up")]
         public async Task<IActionResult> SignUp(RegisterUserCommand registerUserCommand)
         {
             var result = await _mediator.Send(registerUserCommand);

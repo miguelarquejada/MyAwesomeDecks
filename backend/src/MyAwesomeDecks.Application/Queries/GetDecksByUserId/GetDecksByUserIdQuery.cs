@@ -3,9 +3,9 @@ using MyAwesomeDecks.Domain.Entities;
 
 namespace MyAwesomeDecks.Application.Queries.GetDecks
 {
-    public class GetDecksQuery : IRequest<IEnumerable<Deck>>
+    public class GetDecksByUserIdQuery : IRequest<IEnumerable<Deck>>
     {
-        public GetDecksQuery(Guid userId)
+        public GetDecksByUserIdQuery(Guid userId)
         {
             UserId = userId;
         }
