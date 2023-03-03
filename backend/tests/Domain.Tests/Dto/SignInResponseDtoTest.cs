@@ -6,12 +6,10 @@ namespace Domain.Tests.Dto
     public class SignInResponseDtoTest
     {
         [Fact]
-        public void Constructor_WithIdAndUsernameAndEmail_ShouldBuildObject()
+        public void Constructor_WithIdAndAndEmail_ShouldBuildObject()
         {
             // Arrange
-            var user = new ApplicationUserDto();
-            user.UserName = "zorro";
-
+            var user = new ApplicationUserDto(Guid.NewGuid(), "zorro@gmail.com");
             var token = "aa";
 
             // Act
@@ -19,7 +17,7 @@ namespace Domain.Tests.Dto
 
             // Assert
             Assert.True(token == signInResponseDto.Token);
-            Assert.True(user.UserName == signInResponseDto.User.UserName);
+            Assert.True(user.Email == signInResponseDto.User.Email);
         }
     }
 }
