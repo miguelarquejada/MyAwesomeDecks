@@ -12,5 +12,6 @@ namespace MyAwesomeDecks.Domain.Repositories
         void Update(T entity);
         Task UpdateAsync(T entity);
         void DeleteById(Guid id);
+        Task DeleteByIdAsync(Guid id);
     }
 }

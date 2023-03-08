@@ -5,7 +5,7 @@ using MyAwesomeDecks.Domain.Entities;
 using MyAwesomeDecks.Domain.Services;
 using Xunit;
 
-namespace Application.Tests.Queries.GetCardsByDeckId
+namespace Application.Tests.Queries.CardQueries.GetCardsByDeckId
 {
     public class GetCardsByDeckIdHandlerTest
     {

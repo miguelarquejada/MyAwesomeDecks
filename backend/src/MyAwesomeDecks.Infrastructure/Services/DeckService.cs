@@ -33,7 +33,7 @@ namespace MyAwesomeDecks.Infrastructure.Services
         public async Task DeleteDeckByIdAsync(Guid id)
         {
             await ThrowDeckNotFoundExceptionIfDeckNotExists(id);
-            await _deckRepository.DeleteDeckByIdAsync(id);
+            await _deckRepository.DeleteByIdAsync(id);
         }
 
         private async Task ThrowDeckNotFoundExceptionIfDeckNotExists(Guid deckId)

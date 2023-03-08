@@ -6,5 +6,7 @@ namespace MyAwesomeDecks.Domain.Services
     {
         IQueryable<Card> GetCardsByDeckId(Guid deckId);
         Task<Card> CreateCardAsync(Card card);
+        Task UpdateCardAsync(Card card);
+        Task DeleteCardByIdAsync(Guid id);
     }
 }

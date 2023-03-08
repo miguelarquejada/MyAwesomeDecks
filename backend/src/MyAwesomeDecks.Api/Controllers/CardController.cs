@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MyAwesomeDecks.Application.Commands.CardCommands.CreateCard;
+using MyAwesomeDecks.Application.Commands.CardCommands.DeleteCard;
+using MyAwesomeDecks.Application.Commands.CardCommands.UpdateCard;
 using MyAwesomeDecks.Application.Queries.CardQueries.GetCardsByDeckId;
 
 namespace MyAwesomeDecks.Api.Controllers
@@ -34,20 +36,20 @@ namespace MyAwesomeDecks.Api.Controllers
             return Ok(result);
         }
 
-        //[HttpPut("{cardId}")]
-        //public async Task<IActionResult> UpdateCard(Guid cardId, UpdateCardCommand updateCardCommand)
-        //{
-        //    updateCardCommand.CardId = cardId;
-        //    await _mediator.Send(updateCardCommand);
-        //    return Ok();
-        //}
+        [HttpPut("{cardId}")]
+        public async Task<IActionResult> UpdateCard(Guid cardId, UpdateCardCommand updateCardCommand)
+        {
+            updateCardCommand.Id = cardId;
+            await _mediator.Send(updateCardCommand);
+            return Ok();
+        }
 
-        //[HttpDelete("{cardId}")]
-        //public async Task<IActionResult> DeleteCardById(Guid cardId)
-        //{
-        //    var deleteCardCommand = new DeleteCardCommand(cardId);
-        //    await _mediator.Send(deleteCardCommand);
-        //    return Ok();
-        //}
+        [HttpDelete("{cardId}")]
+        public async Task<IActionResult> DeleteCardById(Guid cardId)
+        {
+            var deleteCardCommand = new DeleteCardCommand(cardId);
+            await _mediator.Send(deleteCardCommand);
+            return Ok();
+        }
     }
 }

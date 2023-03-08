@@ -2,6 +2,14 @@
 {
     public class Card : Entity
     {
+        public Card(Guid id, string front, string back, Guid deckId)
+        {
+            Id = id;
+            Front = front;
+            Back = back;
+            DeckId = deckId;
+        }
+
         public Card(string front, string back, Guid deckId)
         {
             Front = front;

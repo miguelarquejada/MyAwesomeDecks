@@ -1,17 +1,17 @@
-﻿using Moq.AutoMock;
-using Moq;
+﻿using Moq;
+using Moq.AutoMock;
+using MyAwesomeDecks.Application.Commands.AuthenticationCommands.AuthenticateUser;
 using MyAwesomeDecks.Domain.Dto;
 using MyAwesomeDecks.Domain.Services;
 using Xunit;
-using MyAwesomeDecks.Application.Commands.AuthenticationCommands.RegisterUser;
 
-namespace Application.Tests.Commands.RegisterUser
+namespace Application.Tests.Commands.AuthenticationCommands.AuthenticateUser
 {
-    public class RegisterUserHandlerTest
+    public class AuthenticateUserHandlerTest
     {
         private readonly AutoMocker _autoMocker;
 
-        public RegisterUserHandlerTest()
+        public AuthenticateUserHandlerTest()
         {
             _autoMocker = new AutoMocker();
         }
@@ -21,17 +21,18 @@ namespace Application.Tests.Commands.RegisterUser
         {
             // Arrange
             _autoMocker.GetMock<IAuthenticationService>()
-                .Setup(x => x.RegisterUser(It.IsAny<string>(), It.IsAny<string>()))
+                .Setup(x => x.SignInUser(It.IsAny<string>(), It.IsAny<string>()))
                 .ReturnsAsync(new AuthenticationResponseDto());
 
-            var handler = _autoMocker.CreateInstance<RegisterUserHandler>();
+            var handler = _autoMocker.CreateInstance<AuthenticateUserHandler>();
 
-            var parameter = new RegisterUserCommand();
+            var parameter = new AuthenticateUserCommand();
             parameter.Email = "zorro@gmail.com";
             parameter.Password = "zorro123";
 
             // Act
             var result = await handler.Handle(parameter, It.IsAny<CancellationToken>());
+
 
             // Assert
             Assert.NotNull(result);

@@ -25,10 +25,5 @@ namespace MyAwesomeDecks.Infrastructure.Repositories
         {
             await UpdateAsync(deck);
         }
-
-        public async Task DeleteDeckByIdAsync(Guid id)
-        {
-            await DeleteByIdAsync(id);
-        }
     }
 }
