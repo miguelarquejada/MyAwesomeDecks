@@ -1,6 +1,6 @@
 ﻿using Moq;
 using Moq.AutoMock;
-using MyAwesomeDecks.Application.Commands.AuthenticateUser;
+using MyAwesomeDecks.Application.Commands.AuthenticationCommands.AuthenticateUser;
 using MyAwesomeDecks.Domain.Dto;
 using MyAwesomeDecks.Domain.Services;
 using Xunit;

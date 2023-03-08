@@ -1,8 +1,8 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using MyAwesomeDecks.Application.Commands.AuthenticateUser;
-using MyAwesomeDecks.Application.Commands.DeckCommands.RegisterUser;
+using MyAwesomeDecks.Application.Commands.AuthenticationCommands.AuthenticateUser;
+using MyAwesomeDecks.Application.Commands.AuthenticationCommands.RegisterUser;
 
 namespace MyAwesomeDecks.Api.Controllers
 {

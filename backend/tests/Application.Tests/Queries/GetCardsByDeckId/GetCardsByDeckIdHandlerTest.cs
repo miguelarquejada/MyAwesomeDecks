@@ -1,7 +1,6 @@
 ﻿using Moq;
 using Moq.AutoMock;
 using MyAwesomeDecks.Application.Queries.CardQueries.GetCardsByDeckId;
-using MyAwesomeDecks.Application.Queries.GetCardsByDeck;
 using MyAwesomeDecks.Domain.Entities;
 using MyAwesomeDecks.Domain.Services;
 using Xunit;

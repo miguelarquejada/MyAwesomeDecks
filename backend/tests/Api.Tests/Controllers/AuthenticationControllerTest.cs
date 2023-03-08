@@ -3,8 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using Moq;
 using Moq.AutoMock;
 using MyAwesomeDecks.Api.Controllers;
-using MyAwesomeDecks.Application.Commands.AuthenticateUser;
-using MyAwesomeDecks.Application.Commands.Deck.RegisterUser;
+using MyAwesomeDecks.Application.Commands.AuthenticationCommands.AuthenticateUser;
+using MyAwesomeDecks.Application.Commands.AuthenticationCommands.RegisterUser;
 using MyAwesomeDecks.Domain.Dto;
 using Xunit;
 

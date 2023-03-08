@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using MyAwesomeDecks.Domain.Dto;
 
-namespace MyAwesomeDecks.Application.Commands.DeckCommands.RegisterUser
+namespace MyAwesomeDecks.Application.Commands.AuthenticationCommands.RegisterUser
 {
     public class RegisterUserCommand : IRequest<AuthenticationResponseDto>
     {

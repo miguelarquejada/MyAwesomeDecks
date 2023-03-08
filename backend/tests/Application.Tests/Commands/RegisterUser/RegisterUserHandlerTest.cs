@@ -3,7 +3,7 @@ using Moq;
 using MyAwesomeDecks.Domain.Dto;
 using MyAwesomeDecks.Domain.Services;
 using Xunit;
-using MyAwesomeDecks.Application.Commands.DeckCommands.RegisterUser;
+using MyAwesomeDecks.Application.Commands.AuthenticationCommands.RegisterUser;
 
 namespace Application.Tests.Commands.RegisterUser
 {

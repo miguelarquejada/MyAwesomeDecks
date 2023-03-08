@@ -2,7 +2,7 @@
 using MyAwesomeDecks.Domain.Dto;
 using MyAwesomeDecks.Domain.Services;
 
-namespace MyAwesomeDecks.Application.Commands.AuthenticateUser
+namespace MyAwesomeDecks.Application.Commands.AuthenticationCommands.AuthenticateUser
 {
     public class AuthenticateUserHandler : IRequestHandler<AuthenticateUserCommand, AuthenticationResponseDto>
     {
