@@ -18,5 +18,11 @@ namespace MyAwesomeDecks.Infrastructure.Services
         {
             return _cardRepository.GetCardsByDeckId(deckId);
         }
+
+        public async Task<Card> CreateCardAsync(Card card)
+        {
+            await _cardRepository.CreateAsync(card);
+            return card;
+        }
     }
 }

@@ -155,23 +155,6 @@ namespace MyAwesomeDecks.Infrastructure.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("MyAwesomeDecks.Domain.Dto.ApplicationUserDto", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UserName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ApplicationUserDto");
-                });
-
             modelBuilder.Entity("MyAwesomeDecks.Domain.Entities.Card", b =>
                 {
                     b.Property<Guid>("Id")
@@ -210,8 +193,6 @@ namespace MyAwesomeDecks.Infrastructure.Data.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Decks");
                 });
@@ -341,17 +322,6 @@ namespace MyAwesomeDecks.Infrastructure.Data.Migrations
                         .IsRequired();
 
                     b.Navigation("Deck");
-                });
-
-            modelBuilder.Entity("MyAwesomeDecks.Domain.Entities.Deck", b =>
-                {
-                    b.HasOne("MyAwesomeDecks.Domain.Dto.ApplicationUserDto", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("MyAwesomeDecks.Domain.Entities.Deck", b =>

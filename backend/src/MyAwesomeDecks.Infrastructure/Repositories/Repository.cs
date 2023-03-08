@@ -30,6 +30,18 @@ namespace MyAwesomeDecks.Infrastructure.Repositories
             return result;
         }
 
+        public void Create(T entity)
+        {
+            _context.Set<T>().Add(entity);
+            _context.SaveChanges();
+        }
+
+        public async Task CreateAsync(T entity)
+        {
+            await _context.Set<T>().AddAsync(entity);
+            await _context.SaveChangesAsync();
+        }
+
         public void Update(T entity)
         {
             _context.Set<T>().Update(entity);

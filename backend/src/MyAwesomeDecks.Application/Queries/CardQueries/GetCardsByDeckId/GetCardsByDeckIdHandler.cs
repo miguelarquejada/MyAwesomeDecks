@@ -2,7 +2,7 @@
 using MyAwesomeDecks.Domain.Entities;
 using MyAwesomeDecks.Domain.Services;
 
-namespace MyAwesomeDecks.Application.Queries.GetCardsByDeck
+namespace MyAwesomeDecks.Application.Queries.CardQueries.GetCardsByDeckId
 {
     public class GetCardsByDeckIdHandler : IRequestHandler<GetCardsByDeckIdQuery, IEnumerable<Card>>
     {

@@ -1,15 +1,9 @@
 ﻿using Moq.AutoMock;
 using Moq;
-using MyAwesomeDecks.Application.Queries.GetCardsByDeck;
 using MyAwesomeDecks.Domain.Entities;
 using MyAwesomeDecks.Domain.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xunit;
-using MyAwesomeDecks.Application.Queries.GetDecks;
+using MyAwesomeDecks.Application.Queries.DeckQueries.GetDecksByUserId;
 
 namespace Application.Tests.Queries.GetDecksByUserId
 {

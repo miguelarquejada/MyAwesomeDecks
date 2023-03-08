@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Moq;
 using Moq.AutoMock;
 using MyAwesomeDecks.Api.Controllers;
-using MyAwesomeDecks.Application.Queries.GetCardsByDeck;
+using MyAwesomeDecks.Application.Queries.CardQueries.GetCardsByDeckId;
 using MyAwesomeDecks.Domain.Entities;
 using Xunit;
 

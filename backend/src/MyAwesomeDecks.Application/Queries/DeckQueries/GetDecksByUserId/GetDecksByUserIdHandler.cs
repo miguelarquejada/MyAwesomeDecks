@@ -4,7 +4,7 @@ using MyAwesomeDecks.Domain.Entities;
 using MyAwesomeDecks.Domain.Services;
 using System.Collections.Generic;
 
-namespace MyAwesomeDecks.Application.Queries.GetDecks
+namespace MyAwesomeDecks.Application.Queries.DeckQueries.GetDecksByUserId
 {
     public class GetDecksByUserIdHandler : IRequestHandler<GetDecksByUserIdQuery, IEnumerable<Deck>>
     {

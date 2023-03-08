@@ -1,15 +1,9 @@
 ﻿using Moq.AutoMock;
 using Moq;
-using MyAwesomeDecks.Application.Commands.AuthenticateUser;
 using MyAwesomeDecks.Domain.Dto;
 using MyAwesomeDecks.Domain.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xunit;
-using MyAwesomeDecks.Application.Commands.RegisterUser;
+using MyAwesomeDecks.Application.Commands.DeckCommands.RegisterUser;
 
 namespace Application.Tests.Commands.RegisterUser
 {

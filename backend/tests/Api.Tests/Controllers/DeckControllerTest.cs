@@ -5,7 +5,7 @@ using Moq;
 using MyAwesomeDecks.Api.Controllers;
 using MyAwesomeDecks.Domain.Entities;
 using Xunit;
-using MyAwesomeDecks.Application.Queries.GetDecks;
+using MyAwesomeDecks.Application.Queries.DeckQueries.GetDecksByUserId;
 
 namespace Api.Tests.Controllers
 {

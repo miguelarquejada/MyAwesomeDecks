@@ -1,7 +1,8 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using MyAwesomeDecks.Application.Queries.GetCardsByDeck;
+using MyAwesomeDecks.Application.Commands.CardCommands.CreateCard;
+using MyAwesomeDecks.Application.Queries.CardQueries.GetCardsByDeckId;
 
 namespace MyAwesomeDecks.Api.Controllers
 {
@@ -25,5 +26,28 @@ namespace MyAwesomeDecks.Api.Controllers
 
             return Ok(result);
         }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateCard(CreateCardCommand createCardCommand)
+        {
+            var result = await _mediator.Send(createCardCommand);
+            return Ok(result);
+        }
+
+        //[HttpPut("{cardId}")]
+        //public async Task<IActionResult> UpdateCard(Guid cardId, UpdateCardCommand updateCardCommand)
+        //{
+        //    updateCardCommand.CardId = cardId;
+        //    await _mediator.Send(updateCardCommand);
+        //    return Ok();
+        //}
+
+        //[HttpDelete("{cardId}")]
+        //public async Task<IActionResult> DeleteCardById(Guid cardId)
+        //{
+        //    var deleteCardCommand = new DeleteCardCommand(cardId);
+        //    await _mediator.Send(deleteCardCommand);
+        //    return Ok();
+        //}
     }
 }

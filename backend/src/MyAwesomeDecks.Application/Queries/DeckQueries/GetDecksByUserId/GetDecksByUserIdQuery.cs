@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using MyAwesomeDecks.Domain.Entities;
 
-namespace MyAwesomeDecks.Application.Queries.GetDecks
+namespace MyAwesomeDecks.Application.Queries.DeckQueries.GetDecksByUserId
 {
     public class GetDecksByUserIdQuery : IRequest<IEnumerable<Deck>>
     {

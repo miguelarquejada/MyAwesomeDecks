@@ -7,7 +7,7 @@ using MyAwesomeDecks.Api.Extensions;
 using MyAwesomeDecks.Api.Identity;
 using MyAwesomeDecks.Api.Middleware;
 using MyAwesomeDecks.Api.Swagger;
-using MyAwesomeDecks.Application.Queries.GetDecks;
+using MyAwesomeDecks.Application.Queries.DeckQueries.GetDecksByUserId;
 using MyAwesomeDecks.Domain.Data;
 using MyAwesomeDecks.Domain.Services;
 using MyAwesomeDecks.Infrastructure.Authentication;

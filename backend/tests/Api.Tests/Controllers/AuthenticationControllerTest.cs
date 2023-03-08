@@ -4,7 +4,7 @@ using Moq;
 using Moq.AutoMock;
 using MyAwesomeDecks.Api.Controllers;
 using MyAwesomeDecks.Application.Commands.AuthenticateUser;
-using MyAwesomeDecks.Application.Commands.RegisterUser;
+using MyAwesomeDecks.Application.Commands.Deck.RegisterUser;
 using MyAwesomeDecks.Domain.Dto;
 using Xunit;
 

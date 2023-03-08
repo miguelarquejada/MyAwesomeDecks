@@ -6,24 +6,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace MyAwesomeDecks.Infrastructure.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class Initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.CreateTable(
-                name: "ApplicationUserDto",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    UserName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ApplicationUserDto", x => x.Id);
-                });
-
             migrationBuilder.CreateTable(
                 name: "AspNetRoles",
                 columns: table => new
@@ -74,12 +61,6 @@ namespace MyAwesomeDecks.Infrastructure.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Decks", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Decks_ApplicationUserDto_UserId",
-                        column: x => x.UserId,
-                        principalTable: "ApplicationUserDto",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -251,11 +232,6 @@ namespace MyAwesomeDecks.Infrastructure.Data.Migrations
                 name: "IX_Cards_DeckId",
                 table: "Cards",
                 column: "DeckId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Decks_UserId",
-                table: "Decks",
-                column: "UserId");
         }
 
         /// <inheritdoc />
@@ -287,9 +263,6 @@ namespace MyAwesomeDecks.Infrastructure.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "Decks");
-
-            migrationBuilder.DropTable(
-                name: "ApplicationUserDto");
         }
     }
 }

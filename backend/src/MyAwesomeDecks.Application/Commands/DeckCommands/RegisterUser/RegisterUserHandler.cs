@@ -2,7 +2,7 @@
 using MyAwesomeDecks.Domain.Dto;
 using MyAwesomeDecks.Domain.Services;
 
-namespace MyAwesomeDecks.Application.Commands.RegisterUser
+namespace MyAwesomeDecks.Application.Commands.DeckCommands.RegisterUser
 {
     public class RegisterUserHandler : IRequestHandler<RegisterUserCommand, AuthenticationResponseDto>
     {

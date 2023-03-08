@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MyAwesomeDecks.Application.Commands.AuthenticateUser;
-using MyAwesomeDecks.Application.Commands.RegisterUser;
+using MyAwesomeDecks.Application.Commands.DeckCommands.RegisterUser;
 
 namespace MyAwesomeDecks.Api.Controllers
 {
